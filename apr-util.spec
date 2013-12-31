@@ -1,11 +1,11 @@
 Summary:	A companion library to Apache Portable Runtime
 Name:		apr-util
-Version:	1.5.2
+Version:	1.5.3
 Release:	1
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://www.apache.org/dist/apr/%{name}-%{version}.tar.bz2
-# Source0-md5:	89c1348aa79e898d7c34a6206311c9c2
+# Source0-md5:	6f3417691c7a27090f36e7cf4d94b36e
 URL:		http://apr.apache.org/
 BuildRequires:	apr-devel
 BuildRequires:	autoconf
