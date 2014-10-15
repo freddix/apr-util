@@ -1,7 +1,7 @@
 Summary:	A companion library to Apache Portable Runtime
 Name:		apr-util
 Version:	1.5.4
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://www.apache.org/dist/apr/%{name}-%{version}.tar.bz2
@@ -44,16 +44,16 @@ Header files and development documentation for apr-util.
 
 %build
 %configure \
-	--enable-static=no		\
 	--with-apr=%{_bindir}		\
 	--with-berkeley-db=%{_prefix}	\
 	--with-dbm=db47			\
 	--with-iconv=%{_prefix}		\
+	--with-crypto			\
 	--with-nss=%{_prefix}		\
 	--with-openssl=%{_prefix}	\
+	--with-sqlite3=%{_prefix}	\
 	--without-mysql			\
 	--without-pgsql			\
-	--with-sqlite3=%{_prefix}	\
 	--without-sqlite2
 
 %{__make} \
@@ -79,6 +79,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES
 %dir %{_libdir}/apr-util-1
+%attr(755,root,root) %{_libdir}/apr-util-1/apr_crypto_nss-1.so
+%attr(755,root,root) %{_libdir}/apr-util-1/apr_crypto_nss.so
+%attr(755,root,root) %{_libdir}/apr-util-1/apr_crypto_openssl-1.so
+%attr(755,root,root) %{_libdir}/apr-util-1/apr_crypto_openssl.so
 %attr(755,root,root) %{_libdir}/apr-util-1/apr_dbd_sqlite3-1.so
 %attr(755,root,root) %{_libdir}/apr-util-1/apr_dbd_sqlite3.so
 %attr(755,root,root) %{_libdir}/apr-util-1/apr_dbm_db-1.so
